@@ -4,21 +4,21 @@ Validates or formats HTML using [Tidy](https://www.html-tidy.org).
 
 For example, to validate:
 
-    docker run --rm dcycle/html-validate:1 --help
-    docker run --rm -v "$(pwd)":/code dcycle/html-validate:1 \
+    docker run --rm dcycle/html-validate:2 --help
+    docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 \
       ./examples/valid/valid.html
     find examples/valid -name "*.html" | xargs \
-      docker run --rm -v "$(pwd)":/code dcycle/html-validate:1
-    docker run --rm -v "$(pwd)":/code dcycle/html-validate:1 \
+      docker run --rm -v "$(pwd)":/code dcycle/html-validate:2
+    docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 \
       ./examples/invalid/valid.html
 
 For example, to format all HTML files in a directory:
 
-    find . -name "*.html" -print0 | xargs -0 docker run --rm -v "$(pwd)":/code dcycle/html-validate:1 -i -m
+    find . -name "*.html" -print0 | xargs -0 docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 -i -m
 
 For example, to format a single HTML file:
 
-    docker run --rm -v "$(pwd)":/code dcycle/html-validate:1 -i -m index.html
+    docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 -i -m index.html
 
 Resources
 -----
