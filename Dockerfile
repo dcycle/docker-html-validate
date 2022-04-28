@@ -1,8 +1,6 @@
-FROM ubuntu
+FROM alpine
 
-RUN apt-get update && \
-  apt-get --no-install-recommends -y install tidy && \
-  rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache tidyhtml
 
 WORKDIR /code
 

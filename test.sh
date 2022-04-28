@@ -1,8 +1,7 @@
 set -e
-docker pull ubuntu
+docker pull alpine
 
 docker build -t local-dcycle-html-validate-image .
-docker run --rm local-dcycle-html-validate-image --help
 
 docker run --rm local-dcycle-html-validate-image --help
 docker run --rm -v "$(pwd)":/code local-dcycle-html-validate-image \
