@@ -16,6 +16,13 @@ For example, to format all HTML files in a directory:
 
     find . -name "*.html" -print0 | xargs -0 docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 -i -m
 
+In some cases the above will refuse to make changes, telling you that "This document has errors that must be fixed before using HTML Tidy to generate a tidied up version." I cannot figure out why this works in some cases and not others, but the following is an alternative way to format all HTML files in a directory:
+
+    for f in docs/*.html docs/*/*.html docs/*/*/*.html docs/*/*/*/*.html docs/*/*/*/*/*.html; do
+      echo "Formatting file $f";
+      docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 -i -m "$f"
+    done
+
 For example, to format a single HTML file:
 
     docker run --rm -v "$(pwd)":/code dcycle/html-validate:2 -i -m index.html
