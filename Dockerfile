@@ -1,7 +1,8 @@
-FROM alpine
+FROM python:alpine
 
-RUN apk add --no-cache tidyhtml
+RUN apk update && apk add --no-cache openjdk8
+RUN pip install html5validator
 
 WORKDIR /code
 
-ENTRYPOINT [ "tidy" ]
+ENTRYPOINT [ "html5validator" ]
