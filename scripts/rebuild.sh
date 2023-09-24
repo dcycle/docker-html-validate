@@ -18,8 +18,8 @@ fi
 
 PROJECT=html-validate
 DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
-MAJORVERSION='2'
-VERSION='2.0'
+MAJORVERSION='3'
+VERSION='3.0'
 
 # See https://github.com/dcycle/prepare-docker-buildx, for M1 native images.
 git clone https://github.com/dcycle/prepare-docker-buildx.git
@@ -34,7 +34,7 @@ docker buildx inspect --bootstrap
 docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 
 # Start by getting the latest version of the official base image
-docker pull alpine
+docker pull python:alpine
 # Rebuild the entire thing
 docker buildx build -t dcycle/"$PROJECT":"$VERSION" --platform linux/amd64,linux/arm64/v8 --push .
 docker buildx build -t dcycle/"$PROJECT":"$MAJORVERSION" --platform linux/amd64,linux/arm64/v8 --push .
