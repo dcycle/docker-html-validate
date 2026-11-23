@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/dcycle/docker-html-validate.svg?style=svg)](https://circleci.com/gh/dcycle/docker-html-validate)
+[![GitHub Actions](https://github.com/dcycle/docker-html-validate/actions/workflows/config.yml/badge.svg)](https://github.com/dcycle/docker-html-validate/actions/workflows/config.yml)
 
 Validates HTML using [Nu Html Checker](https://github.com/validator/validator) (tag 3); Formats HTML using [Tidy](https://www.html-tidy.org) (tag 2, no longer updated weekly as of September 2023, but still useful for formatting).
 
